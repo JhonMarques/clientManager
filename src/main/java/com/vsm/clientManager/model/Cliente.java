@@ -2,17 +2,14 @@ package com.vsm.clientManager.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.build.HashCodeAndEqualsPlugin;
-import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +18,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente implements Serializable {
+public class Cliente  {
 
-    private static final long serialVersionUID = 1L;
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty(message = "Campo NOME não pode ser vazio")
@@ -34,11 +31,11 @@ public class Cliente implements Serializable {
 
 
     @NotEmpty(message = "Campo CPF não pode ser vazio")
-    private Integer cpf;
-
-    private Integer cep;
+    private String cpf;
 
     private Integer telefone;
+
+    private String cep;
 
     private String endereco;
 
@@ -48,8 +45,9 @@ public class Cliente implements Serializable {
 
     private Boolean ativo;
 
+
     @ManyToOne()
     @JoinColumn(name = "cidade_id")
-    private List<Cidade> cidades = new ArrayList<>();
+    private Cidade cidade;
 
 }

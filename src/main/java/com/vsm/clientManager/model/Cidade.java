@@ -16,12 +16,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cidade implements Serializable {
+public class Cidade  {
 
-    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty(message = "Campo NOME não pode ser vazio")
@@ -31,7 +30,7 @@ public class Cidade implements Serializable {
     private String uf;
 
 
-    @OneToMany (mappedBy = "cliente")
+    @OneToMany (mappedBy = "cidade")
     private List<Cliente> clientes = new ArrayList<>();
 
 }
