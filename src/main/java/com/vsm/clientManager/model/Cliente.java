@@ -18,8 +18,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente  {
-
+public class Cliente {
 
 
     @Id

@@ -39,9 +39,10 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
-    private void ative(Integer id, Cliente cliente) throws ClienteNotFoundException {
+    public Cliente disableCliente(Integer id, Cliente cliente) throws ClienteNotFoundException {
         verifyIfExists(id);
         cliente.setAtivo(false);
+        return clienteRepository.save(cliente);
     }
 
     private Cliente verifyIfExists(Integer id) throws ClienteNotFoundException {
