@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cidade  {
+public class Cidade implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
 
     @Id
@@ -28,8 +31,7 @@ public class Cidade  {
     @NotEmpty(message = "Campo UF não pode ser vazio")
     private String uf;
 
-
-    @OneToMany (mappedBy = "cidade")
-    private List<Cliente> clientes = new ArrayList<>();
+//    @OneToMany (mappedBy = "cidade")
+//    private List<Cliente> clientes = new ArrayList<>();
 
 }
