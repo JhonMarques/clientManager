@@ -43,6 +43,8 @@ public class Cliente implements Serializable {
 
     private String numero;
 
+    private String bairro;
+
     private String email;
 
     private Boolean ativo;
