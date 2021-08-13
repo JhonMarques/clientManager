@@ -1,6 +1,7 @@
 package com.vsm.clientManager.controller;
 
 import com.vsm.clientManager.Service.ClienteService;
+import com.vsm.clientManager.exception.CidadeNotFoundException;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cliente;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,7 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
     public ResponseEntity<Cliente> create(@Valid @RequestParam(value = "cidades", defaultValue = "0")
-                                            Integer cidade_id, @RequestBody Cliente obj){
+                                            Integer cidade_id, @RequestBody Cliente obj) throws CidadeNotFoundException {
         Cliente newObj = clienteService.create(cidade_id, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
             .path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
