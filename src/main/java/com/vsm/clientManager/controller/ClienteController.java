@@ -2,7 +2,6 @@ package com.vsm.clientManager.controller;
 
 import com.vsm.clientManager.Service.CidadeService;
 import com.vsm.clientManager.Service.ClienteService;
-import com.vsm.clientManager.exception.CidadeNotFoundException;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cliente;
 import lombok.AllArgsConstructor;
@@ -28,8 +27,8 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
-    public Cliente create(@RequestBody Integer cidade_id, Cliente cliente) throws CidadeNotFoundException {
-        return clienteService.create(cidade_id, cliente);
+    public Cliente create(@RequestBody Cliente cliente) {
+        return clienteService.create(cliente);
     }
 
     @GetMapping(value = "/listarTodos")
