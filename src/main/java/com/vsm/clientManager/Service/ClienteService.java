@@ -29,10 +29,11 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente create(Integer cidade_id,Cliente cliente) throws CidadeNotFoundException {
+    public Cliente create(Integer cidade_id, Cliente cliente) throws CidadeNotFoundException {
         cliente.setId(null);
         Cidade cidade = cidadeService.findById(cidade_id);
         cliente.setAtivo(true);
+        cliente.setCidade(cidade);
         return clienteRepository.save(cliente);
     }
 

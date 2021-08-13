@@ -1,5 +1,6 @@
 package com.vsm.clientManager.controller;
 
+import com.vsm.clientManager.Service.CidadeService;
 import com.vsm.clientManager.Service.ClienteService;
 import com.vsm.clientManager.exception.CidadeNotFoundException;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
@@ -8,12 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -25,15 +22,14 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-//
+
+    @Autowired
+    private CidadeService cidadeService;
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
-    public ResponseEntity<Cliente> create(@Valid @RequestParam(value = "cidades", defaultValue = "0")
-                                            Integer cidade_id, @RequestBody Cliente obj) throws CidadeNotFoundException {
-        Cliente newObj = clienteService.create(cidade_id, obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
-            .path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+    public Cliente create(@RequestBody Integer cidade_id, Cliente cliente) throws CidadeNotFoundException {
+        return clienteService.create(cidade_id, cliente);
     }
 
     @GetMapping(value = "/listarTodos")
