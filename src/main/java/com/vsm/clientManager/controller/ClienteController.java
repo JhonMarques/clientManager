@@ -7,8 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -23,8 +27,12 @@ public class ClienteController {
 //
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
-    public Cliente create(@RequestBody Cliente cliente) {
-        return clienteService.create(cliente);
+    public ResponseEntity<Cliente> create(@Valid @RequestParam(value = "cidades", defaultValue = "0")
+                                            Integer cidade_id, @RequestBody Cliente obj){
+        Cliente newObj = clienteService.create(cidade_id, obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+            .path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @GetMapping(value = "/listarTodos")

@@ -1,7 +1,9 @@
 package com.vsm.clientManager.Service;
 
 
+import com.vsm.clientManager.exception.CidadeNotFoundException;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
+import com.vsm.clientManager.model.Cidade;
 import com.vsm.clientManager.model.Cliente;
 import com.vsm.clientManager.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,9 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente create(Cliente cliente){
+    public Cliente create(Integer cidade_id,Cliente cliente) throws CidadeNotFoundException {
         cliente.setId(null);
+        Cidade cidade = cidadeService.findById(cidade_id);
         cliente.setAtivo(true);
         return clienteRepository.save(cliente);
     }
