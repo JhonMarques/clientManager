@@ -28,6 +28,7 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
     public Cliente create(@RequestBody Cliente cliente) {
+
         return clienteService.create(cliente);
     }
 
