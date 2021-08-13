@@ -35,6 +35,8 @@ public class Cliente implements Serializable {
     @NotEmpty(message = "Campo CPF não pode ser vazio")
     private String cpf;
 
+
+
     private Integer telefone;
 
     private String cep;
@@ -50,7 +52,7 @@ public class Cliente implements Serializable {
     private Boolean ativo;
 
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
 

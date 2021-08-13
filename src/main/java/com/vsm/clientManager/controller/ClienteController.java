@@ -1,7 +1,7 @@
 package com.vsm.clientManager.controller;
 
-import com.vsm.clientManager.Service.CidadeService;
-import com.vsm.clientManager.Service.ClienteService;
+import com.vsm.clientManager.service.CidadeService;
+import com.vsm.clientManager.service.ClienteService;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cliente;
 import lombok.AllArgsConstructor;
@@ -27,8 +27,7 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/novoCliente")
-    public Cliente create(@RequestBody Cliente cliente) {
-
+    public Cliente create(@RequestBody Cliente cliente){
         return clienteService.create(cliente);
     }
 

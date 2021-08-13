@@ -1,7 +1,6 @@
-package com.vsm.clientManager.Service;
+package com.vsm.clientManager.service;
 
 import com.vsm.clientManager.exception.CidadeNotFoundException;
-import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cidade;
 import com.vsm.clientManager.repositories.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

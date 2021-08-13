@@ -1,4 +1,4 @@
-package com.vsm.clientManager.corsFilter;
+package com.vsm.clientManager.configuration;
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
 package com.vsm.clientManager.controller;
 
-import com.vsm.clientManager.Service.CidadeService;
+import com.vsm.clientManager.service.CidadeService;
 import com.vsm.clientManager.exception.CidadeNotFoundException;
 import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cidade;
