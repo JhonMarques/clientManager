@@ -36,7 +36,6 @@ public class Cliente implements Serializable {
     private String cpf;
 
 
-
     private Integer telefone;
 
     private String cep;

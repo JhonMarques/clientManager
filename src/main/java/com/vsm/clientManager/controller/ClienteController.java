@@ -36,7 +36,7 @@ public class ClienteController {
         return clienteService.findAll();
     }
 
-    @GetMapping(value = "/atualizarCliente/{id}")
+    @GetMapping(value = "/buscarCliente/{id}")
     public Cliente findById(@PathVariable Integer id) throws ClienteNotFoundException {
         return clienteService.findById(id);
     }
