@@ -45,7 +45,7 @@ public class ClienteController {
     public Cliente updateById(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.updateById(id, cliente);
     }
-
+//
     @PutMapping(value = "/desativarCliente/{id}")
     public Cliente disableCliente(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.disableCliente(id, cliente);
