@@ -51,7 +51,7 @@ public class ClienteController {
     public Cliente disableCliente(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.disableCliente(id, cliente);
     }
-    @GetMapping(value = "/lista")
+    @GetMapping(value = "/listarAtivos")
     public List<Cliente> verifyAtivo(){
         return clienteService.verifyAtivo();
     }
