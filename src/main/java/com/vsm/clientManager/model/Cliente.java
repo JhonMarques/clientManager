@@ -48,7 +48,7 @@ public class Cliente implements Serializable {
 
     private String email;
 
-    private boolean ativo;
+    private boolean ativo = true;
 
     private String cidade;
 
