@@ -5,6 +5,7 @@ import com.vsm.clientManager.exception.ClienteNotFoundException;
 import com.vsm.clientManager.model.Cliente;
 import com.vsm.clientManager.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

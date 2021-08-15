@@ -31,7 +31,7 @@ public class Cidade implements Serializable {
     @NotEmpty(message = "Campo UF não pode ser vazio")
     private String uf;
 
-//    @OneToMany (mappedBy = "cidade")
+//   @OneToMany (mappedBy = "cidade")
 //    private List<Cliente> clientes = new ArrayList<>();
 
 }

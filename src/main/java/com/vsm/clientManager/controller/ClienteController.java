@@ -41,6 +41,7 @@ public class ClienteController {
         return clienteService.findById(id);
     }
 
+
     @PutMapping(value = "/atualizarCliente/{id}")
     public Cliente updateById(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.updateById(id, cliente);
@@ -50,5 +51,7 @@ public class ClienteController {
     public Cliente disableCliente(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.disableCliente(id, cliente);
     }
+
+
 
 }
