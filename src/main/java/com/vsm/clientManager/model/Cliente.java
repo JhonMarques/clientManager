@@ -50,9 +50,10 @@ public class Cliente implements Serializable {
 
     private boolean ativo;
 
+    private String cidade;
 
-    @ManyToOne  (cascade=CascadeType.MERGE)
-    @JoinColumn(name = "cidade_id")
-    private Cidade cidade;
+//    @ManyToOne  (cascade=CascadeType.MERGE)
+//    @JoinColumn(name = "cidade_id")
+//    private Cidade cidade;
 
 }
