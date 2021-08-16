@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -23,7 +24,6 @@ public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,8 +33,8 @@ public class Cliente implements Serializable {
 
 
     @NotEmpty(message = "Campo CPF não pode ser vazio")
+    @Length(min = 11, max = 14, message = "O campo CPF/CNPJ deve ter entre 11 e 14 caracteres")
     private String cpf;
-
 
     private Integer telefone;
 

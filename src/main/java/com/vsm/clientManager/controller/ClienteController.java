@@ -41,16 +41,16 @@ public class ClienteController {
         return clienteService.findById(id);
     }
 
-
     @PutMapping(value = "/atualizarCliente/{id}")
     public Cliente updateById(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.updateById(id, cliente);
     }
-//
+
     @PutMapping(value = "/desativarCliente/{id}")
     public Cliente disableCliente(@PathVariable Integer id, @RequestBody Cliente cliente) throws ClienteNotFoundException {
         return clienteService.disableCliente(id, cliente);
     }
+
     @GetMapping(value = "/listarAtivos")
     public List<Cliente> verifyAtivo(){
         return clienteService.verifyAtivo();
@@ -60,5 +60,12 @@ public class ClienteController {
     public List<Cliente> verifyInativo(){
         return clienteService.verifyInativo();
     }
+
+    @GetMapping(value = "/buscar/{cpf}")
+    public Cliente findByCpf(@PathVariable String cpf) throws ClienteNotFoundException{
+        return clienteService.findByCpf(cpf);
+    }
+
+
 
 }

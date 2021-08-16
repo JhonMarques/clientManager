@@ -30,7 +30,6 @@ public class ClienteService {
         }
 
     public Cliente create(Cliente cliente) {
-        cliente.setId(null);
         return clienteRepository.save(cliente);
     }
 
@@ -77,6 +76,16 @@ public class ClienteService {
         return retorno;
     }
 
+    public Cliente findByCpf(String cpf){
 
+        Cliente retorno = new Cliente();
+        List<Cliente> clientes = findAll();
 
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf)) {
+                 retorno = cliente;
+            }
+        }
+        return  retorno;
+    }
 }
