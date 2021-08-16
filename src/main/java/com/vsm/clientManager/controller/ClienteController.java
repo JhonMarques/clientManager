@@ -56,4 +56,9 @@ public class ClienteController {
         return clienteService.verifyAtivo();
     }
 
+    @GetMapping(value = "/listarInativos")
+    public List<Cliente> verifyInativo(){
+        return clienteService.verifyInativo();
+    }
+
 }
