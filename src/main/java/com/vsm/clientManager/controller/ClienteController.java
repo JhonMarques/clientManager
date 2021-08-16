@@ -61,7 +61,7 @@ public class ClienteController {
         return clienteService.verifyInativo();
     }
 
-    @GetMapping(value = "/buscar/{cpf}")
+    @GetMapping(value = "{cpf}")
     public Cliente findByCpf(@PathVariable String cpf) throws ClienteNotFoundException{
         return clienteService.findByCpf(cpf);
     }
