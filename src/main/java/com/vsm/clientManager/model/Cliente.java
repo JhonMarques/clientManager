@@ -34,6 +34,7 @@ public class Cliente implements Serializable {
 
     @NotEmpty(message = "Campo CPF não pode ser vazio")
     @Length(min = 11, max = 14, message = "O campo CPF/CNPJ deve ter entre 11 e 14 caracteres")
+
     private String cpf;
 
     private Integer telefone;
